@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="lib/aws-java-sdk-1.10.33-sources.jar"/>
 	<classpathentry kind="lib" path="lib/aws-java-sdk-1.10.33.jar"/>
 	<classpathentry kind="lib" path="lib/aws-java-sdk-flow-build-tools-1.10.33.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
