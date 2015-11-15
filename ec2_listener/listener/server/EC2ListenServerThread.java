@@ -1,4 +1,4 @@
-package server;
+package listener.server;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class EC2ListenServerThread extends Thread {
 
 	public EC2ListenServerThread(Socket server) {
 		this.server = server;
-		sqs = SQSFactory.getSimpleQueue(server.getRemoteSocketAddress().toString());
+		sqs = SQSFactory.getSimpleQueue();
 		handShake();
 	}
 	

@@ -1,11 +1,9 @@
-package server;
+package listener.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 
-//import org.apache.log4j.Logger;
-
-import server.exceptions.EC2ListenServerException;
+import listener.server.exceptions.EC2ListenServerException;
 
 public class EC2ListenServer {
 	

@@ -1,6 +1,6 @@
-package main;
+package listener.main;
 
-import server.EC2ListenServer;
+import listener.server.EC2ListenServer;
 
 public class Main {
 	
