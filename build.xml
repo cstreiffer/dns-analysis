@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project goodPaulHuntingAJauntIntoDNS with Jar-in-Jar Loader">
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.build" value="${dir.buildfile}/build"/>
+    <property name="dir.classes" value="${dir.build}"/>
+    <property name="dir.workspace" value="${dir.buildfile}/.."/>
+    <property name="dir.jarfile" value="${dir.classes}"/>
+
+    <target name="clean">
+        <delete dir="${dir.classes}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${dir.classes}/classes"/>
+        <javac srcdir="${dir.buildfile}/ec2_listener" destdir="${dir.classes}/classes"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${dir.buildfile}/goodPaulHuntingAJauntIntoDNS-0.0.1.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="main.Main"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.classes}/classes"/>
+            <fileset dir="${dir.buildfile}/lib"/>
+        </jar>
+    </target>
+	
+</project>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="target/classes" path="project">
+	<classpathentry kind="src" output="target/classes" path="ec2_listener">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="query_relay_client"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -23,10 +23,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/aws-java-sdk-1.10.33-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/aws-java-sdk-1.10.33-sources.jar"/>
-	<classpathentry kind="lib" path="lib/aws-java-sdk-1.10.33.jar"/>
-	<classpathentry kind="lib" path="lib/aws-java-sdk-flow-build-tools-1.10.33.jar"/>
 	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
