@@ -11,7 +11,7 @@ import util.sqs.SimpleQueue;
 
 public class Main {
 	
-	
+	// Responsible for connecting
 	
 	public static void main(String...args) {
 		SimpleQueue myQueue = SQSFactory.getSimpleQueue();
