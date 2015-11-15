@@ -16,7 +16,8 @@ public class GreetingClient
          DataOutputStream out = new DataOutputStream(outToServer);
          for(int i = 0; i < 10; i++) {
         	 out.writeUTF("Hello from " + client.getLocalSocketAddress() + ": " + i);
-         }         
+         }
+         client.close();
       }catch(IOException e)
       {
          e.printStackTrace();

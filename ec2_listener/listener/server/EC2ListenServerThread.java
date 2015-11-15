@@ -1,6 +1,7 @@
 package listener.server;
 
 import java.io.DataInputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -41,9 +42,12 @@ public class EC2ListenServerThread extends Thread {
 					System.out.println(input);
 					sqs.getSqs().sendMessage(new SendMessageRequest(sqs.getSqsUrl(), input));
 				}
-			} catch (AmazonClientException | IOException e) {
-				//logger.error(e);	
-				e.printStackTrace();
+			} catch (AmazonClientException e) {
+				// ??
+			} catch (EOFException e) {
+				break;
+			} catch (IOException e) {
+				// ??
 			}
 		}
 	}
