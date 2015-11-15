@@ -1,4 +1,4 @@
-package query_relay_client.main;
+package client.main;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
