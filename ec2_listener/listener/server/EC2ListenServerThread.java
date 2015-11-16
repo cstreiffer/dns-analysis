@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Logger;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.services.sqs.model.SendMessageRequest;
+
 import util.sqs.SQSFactory;
 import util.sqs.SimpleQueue;
-//import org.apache.log4j.Logger;
 
 public class EC2ListenServerThread extends Thread {
 
@@ -19,7 +21,6 @@ public class EC2ListenServerThread extends Thread {
 	private boolean listening = false;
 
 
-	private static Logger logger = Logger.getLogger(EC2ListenServerThread.class); 
 
 	public EC2ListenServerThread(Socket server) {
 		this.server = server;
@@ -28,13 +29,14 @@ public class EC2ListenServerThread extends Thread {
 	}
 	
 	public void run() {
-		logger.trace("Just connected to " + server.getRemoteSocketAddress());
 		//System.out.println("Just connected to " + server.getRemoteSocketAddress());
 		while(listening) {
 			String input;
 			try {
 				if((input = inputStream.readUTF()) != null) {
 					System.out.println(input);
+					listening = (input.equalsIgnoreCase("quit") == false);
+
 					sqs.getSqs().sendMessage(new SendMessageRequest(sqs.getSqsUrl(), input));
 				}
 			} catch (AmazonClientException e) {
@@ -44,6 +46,13 @@ public class EC2ListenServerThread extends Thread {
 			} catch (IOException e) {
 				// ??
 			}
+		}
+		try {
+			inputStream.close();
+			server.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
