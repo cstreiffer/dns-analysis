@@ -4,16 +4,11 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
-
-import org.apache.log4j.Logger;
-
-//import org.apache.log4j.Logger;
-
-import com.amazonaws.AmazonClientException;
-import com.amazonaws.services.sqs.model.SendMessageRequest;
+import java.util.logging.Logger;
 
 import util.sqs.SQSFactory;
 import util.sqs.SimpleQueue;
+//import org.apache.log4j.Logger;
 
 public class EC2ListenServerThread extends Thread {
 

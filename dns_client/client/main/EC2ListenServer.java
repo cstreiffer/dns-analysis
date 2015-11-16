@@ -25,12 +25,16 @@ public class EC2ListenServer extends Thread {
 						+ server.getRemoteSocketAddress());
 				DataInputStream in =
 						new DataInputStream(server.getInputStream());
-				System.out.println(in.readUTF());
+				//String line_in = in.readUTF();
 				DataOutputStream out = new DataOutputStream(server.getOutputStream());
 				int val = 0;
-				while(true) {
-					out.writeUTF(String.format("Fuccckkkaaa You: %d", val++));
+				String line_in = "";
+				while(line_in.equalsIgnoreCase("quit") == false) {
+					line_in = in.readUTF();
+					System.out.println(line_in);
 				}
+				in.close();
+				out.close();
 			} catch(SocketTimeoutException s) {
 				System.out.println("Socket timed out!");
 				break;
