@@ -28,7 +28,7 @@ public class EC2ListenServer {
 				//logger.error(i);
 				i.printStackTrace();
 			}
-			run();
+//			run();
 		}
 	}
 	

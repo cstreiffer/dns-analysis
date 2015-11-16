@@ -45,7 +45,7 @@ public class EC2ListenServerThread extends Thread {
 			} catch (AmazonClientException e) {
 				// ??
 			} catch (EOFException e) {
-				break;
+				e.printStackTrace();
 			} catch (IOException e) {
 				// ??
 			}
