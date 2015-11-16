@@ -1,4 +1,5 @@
 ./bin/
 ./target/classes/
 ./target/maven-archiver/
+./target/maven-archiver/pom.properties
 ./target/maven-status/
