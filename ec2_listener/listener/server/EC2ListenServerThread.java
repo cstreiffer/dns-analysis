@@ -19,9 +19,7 @@ public class EC2ListenServerThread extends Thread {
 	private DataInputStream inputStream;
 
 	private boolean listening = false;
-
-
-
+	
 	public EC2ListenServerThread(Socket server) {
 		this.server = server;
 		sqs = SQSFactory.getSimpleQueue();
@@ -29,7 +27,7 @@ public class EC2ListenServerThread extends Thread {
 	}
 	
 	public void run() {
-		//System.out.println("Just connected to " + server.getRemoteSocketAddress());
+		System.out.println("Just connected to " + server.getRemoteSocketAddress());
 		while(listening) {
 			String input;
 			try {
@@ -40,19 +38,18 @@ public class EC2ListenServerThread extends Thread {
 					sqs.getSqs().sendMessage(new SendMessageRequest(sqs.getSqsUrl(), input));
 				}
 			} catch (AmazonClientException e) {
-				// ??
+				break;
 			} catch (EOFException e) {
-				e.printStackTrace();
+				break;
 			} catch (IOException e) {
-				// ??
+				break;
 			}
 		}
 		try {
 			inputStream.close();
 			server.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// TO DO catch and handle exception
 		}
 	}
 	
