@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>goodPaulHuntingAJauntIntoDNS</name>
   <build>
-    <sourceDirectory>project</sourceDirectory>
+    <sourceDirectory>ec2_listener</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
