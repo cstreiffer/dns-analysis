@@ -1,2 +1,4 @@
-/target/
 ./bin/
+./target/classes/
+./target/maven-archiver/
+./target/maven-status/
