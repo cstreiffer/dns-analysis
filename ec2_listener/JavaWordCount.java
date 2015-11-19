@@ -47,9 +47,7 @@ public final class JavaWordCount {
         	  sb.append(type+" ");
         	 // sb.append(MAC+" ");
         	  sb.append(time);
-        	  sb.append("\n");
-        	  System.out.print(sb.toString());
-    		  
+        	  sb.append("\n");    		  
     	  }
     	  
         return Arrays.asList(sb.toString().split("\n"));
