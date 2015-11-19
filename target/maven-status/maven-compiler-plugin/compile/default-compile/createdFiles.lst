@@ -7,6 +7,7 @@ util/credentials/CredentialManager.class
 client/dns/DNSClientSender.class
 client/relay/EC2RelayClient.class
 listener/server/exceptions/EC2ListenServerException.class
+util/hdfs/HDFSManager.class
 aggregator/main/JavaCustomReceiver$3.class
 listener/main/Main.class
 aggregator/main/JavaCustomReceiver$4.class

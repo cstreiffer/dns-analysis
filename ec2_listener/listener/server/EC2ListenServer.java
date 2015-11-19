@@ -8,18 +8,17 @@ import com.google.common.io.Closeables;
 
 public class EC2ListenServer {
 	
-	private Integer port;
 	private ServerSocket serverSocket;
+	private static final Integer PORT = 5055;
 		
-	public EC2ListenServer(Integer port) {
-		this.port = port;
+	public EC2ListenServer() {
 	}
 	
 	public void run() {	
 		try {
 			serverSocket = null;
 			try {
-				serverSocket = new ServerSocket(port);
+				serverSocket = new ServerSocket(PORT);
 				waitAndListen();
 			} finally {
 				Closeables.close(serverSocket, true);

@@ -11,18 +11,18 @@ import com.google.common.io.Closeables;
 
 public class DNSClientSender {
 	
-	private static final String IP_ADDRESS = "localhost";
+	private static final String IP_ADDRESS = "ec2-52-91-62-57.compute-1.amazonaws.com";
 	private static final String DNS_FILE = "files/dns_queries.json";
+	private static final Integer PORT = 5055;
 	
 	public static void main(String[] args) throws InterruptedException {
 		try {
-			int port = 5055;
 			DataOutputStream writer = null;
 			DataInputStream reader = null;
 			Socket client = null;
 			BufferedReader textReader = null;
 			try {
-				client = new Socket(IP_ADDRESS, port);				
+				client = new Socket(IP_ADDRESS, PORT);				
 				writer = new DataOutputStream(client.getOutputStream());
 				reader = new DataInputStream(client.getInputStream());
 
