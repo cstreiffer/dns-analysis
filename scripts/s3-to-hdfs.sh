@@ -3,7 +3,7 @@ CUR_DIR=/root/goodPaulHuntingAJauntIntoDNS/scripts
 S3_DIR=s3://cs-514/temp
 HDFS_DIR=/user/hadoop
 FILE=dns_queries.txt
-LOG_FILE=$CUR_DIR/../logs/output-log.txt
+LOG_FILE=$CUR_DIR/../logs/s3-to-hdfs-output-log.txt
 
 run() {
 	# Log the action
