@@ -13,8 +13,8 @@ public class HDFSManager {
 	
 	private BufferedWriter fileOutput;
 	
-	private static final String HDFS = "hdfs://localhost:9000";
-	private static final String FILE = "hdfs://localhost:9000/user/christopherstreiffer/big-supah-output.txt";
+	private static final String HDFS = "hdfs://ip-172-31-54-40.ec2.internal:9000";
+	private static final String FILE = "hdfs://ip-172-31-54-40.ec2.internal:9000/user/christopherstreiffer/big-supah-output.txt";
 	
 	private static final HDFSManager myManager = new HDFSManager();
 	
