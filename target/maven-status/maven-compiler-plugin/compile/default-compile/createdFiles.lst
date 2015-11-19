@@ -1,8 +1,12 @@
 aggregator/main/JavaCustomReceiver$2.class
 listener/server/EC2ListenServer.class
+JavaWordCount$2.class
+JavaWordCount$3.class
 listener/server/EC2ListenServerThread.class
 aggregator/main/JavaCustomReceiver.class
+JavaWordCount$1.class
 aggregator/main/JavaCustomReceiver$1.class
+JavaWordCount.class
 util/credentials/CredentialManager.class
 client/dns/DNSClientSender.class
 client/relay/EC2RelayClient.class
@@ -10,4 +14,3 @@ listener/server/exceptions/EC2ListenServerException.class
 util/hdfs/HDFSManager.class
 aggregator/main/JavaCustomReceiver$3.class
 listener/main/Main.class
-aggregator/main/JavaCustomReceiver$4.class
