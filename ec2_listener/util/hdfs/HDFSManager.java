@@ -13,8 +13,8 @@ public class HDFSManager {
 	
 	private BufferedWriter fileOutput;
 	
-	private static final String HDFS = "hdfs://ec2-52-91-62-57.compute-1.amazonaws.com:9000";
-	private static final String FILE = "hdfs://ec2-52-91-62-57.compute-1.amazonaws.com:9000/user/christopherstreiffer/big-supah-output.txt";
+	private static final String HDFS = "hdfs://localhost:9000";
+	private static final String FILE = "hdfs://localhost:9000/user/christopherstreiffer/big-supah-output.txt";
 	
 	private static final HDFSManager myManager = new HDFSManager();
 	
