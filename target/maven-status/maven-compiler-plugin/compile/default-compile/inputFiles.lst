@@ -1,6 +1,7 @@
 /Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/main/Main.java
 /Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/EC2ListenServerThread.java
 /Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/EC2ListenServer.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/util/hdfs/HDFSManager.java
 /Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/exceptions/EC2ListenServerException.java
 /Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/aggregator/main/JavaCustomReceiver.java
 /Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/util/credentials/CredentialManager.java
