@@ -1,65 +1,65 @@
 package listener.server;
 
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
-import java.io.EOFException;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.Socket;
-import java.util.logging.Logger;
 
-import com.amazonaws.AmazonClientException;
-import com.amazonaws.services.sqs.model.SendMessageRequest;
+import org.apache.hadoop.conf.Configuration;
 
-import util.sqs.SQSFactory;
-import util.sqs.SimpleQueue;
+import com.google.common.io.Closeables;
 
 public class EC2ListenServerThread extends Thread {
 
 	private Socket server;
-	private SimpleQueue sqs;
-	private DataInputStream inputStream;
-
-	private boolean listening = false;
+	private Configuration config;
+	private BufferedWriter fileOutput;
+	private static final String FILE = "files/output.txt";
+	
 	
 	public EC2ListenServerThread(Socket server) {
 		this.server = server;
-		sqs = SQSFactory.getSimpleQueue();
-		handShake();
+		this.config = new Configuration();
+		try {
+			File file = new File(FILE);
+			FileWriter fw = new FileWriter(file);
+			fileOutput = new BufferedWriter(fw);
+		} catch (IOException e) {
+			System.out.println("Didn't work");
+		}
 	}
 	
 	public void run() {
-		System.out.println("Just connected to " + server.getRemoteSocketAddress());
-		while(listening) {
-			String input;
+		try {
+			System.out.println("Just connected to " + server.getRemoteSocketAddress());
+			DataInputStream reader = null;
+			DataOutputStream writer = null;
 			try {
-				if((input = inputStream.readUTF()) != null) {
-					System.out.println(input);
-					listening = (input.equalsIgnoreCase("quit") == false);
-
-					sqs.getSqs().sendMessage(new SendMessageRequest(sqs.getSqsUrl(), input));
+				reader = new DataInputStream(server.getInputStream());
+				writer = new DataOutputStream(server.getOutputStream());			
+				writer.writeUTF("Connected to: " + server.getLocalSocketAddress());
+				
+				String input = "";
+				while(server.isConnected() && (input = reader.readUTF()) != null) {
+					// Store this data in a file
+					System.out.println("Writing to textfile: " + input);
+					fileOutput.write(input);
+					fileOutput.flush();
 				}
-			} catch (AmazonClientException e) {
-				break;
-			} catch (EOFException e) {
-				break;
-			} catch (IOException e) {
-				break;
+		         
+			} finally {
+				Closeables.close(writer, true);
+				Closeables.close(reader, true);
+				Closeables.close(server, true);
 			}
-		}
-		try {
-			inputStream.close();
-			server.close();
-		} catch (IOException e) {
-			// TO DO catch and handle exception
-		}
-	}
-	
-	private void handShake() {
-		// Method to test whether connection is trustworthy
-		try {
-			inputStream = new DataInputStream(server.getInputStream());
-			listening = true;
-		} catch (IOException e) {
-			// Do something here
-		}
+		} catch(ConnectException ce) {
+		      System.err.println("Could not connect: " + ce);
+	    } catch(Throwable t) {
+		      System.err.println("Error receiving data: " + t);
+	    }
 	}
 }

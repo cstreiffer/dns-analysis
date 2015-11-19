@@ -6,6 +6,11 @@
   <name>goodPaulHuntingAJauntIntoDNS</name>
   <build>
     <sourceDirectory>ec2_listener</sourceDirectory>
+    <resources>
+     <resource>
+       <directory>files</directory>
+     </resource>
+   </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
