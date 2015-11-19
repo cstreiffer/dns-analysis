@@ -11,7 +11,7 @@ import com.google.common.io.Closeables;
 
 public class DNSClientSender {
 	
-	private static final String IP_ADDRESS = "ec2-52-91-62-57.compute-1.amazonaws.com";
+	private static final String IP_ADDRESS = "ec2-52-5-126-181.compute-1.amazonaws.com";
 	private static final String DNS_FILE = "files/dns_queries.json";
 	private static final Integer PORT = 5055;
 	
