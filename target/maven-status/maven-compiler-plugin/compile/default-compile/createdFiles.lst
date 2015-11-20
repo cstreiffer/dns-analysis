@@ -1,12 +1,12 @@
 aggregator/main/JavaCustomReceiver$2.class
 listener/server/EC2ListenServer.class
-listener/server/EC2ListenServerThread.class
 aggregator/main/JavaCustomReceiver.class
+client/dns/DNSClientSender.class
+util/hdfs/HDFSManager.class
+listener/server/EC2ListenServerThread.class
 aggregator/main/JavaCustomReceiver$1.class
 util/credentials/CredentialManager.class
-client/dns/DNSClientSender.class
 client/relay/EC2RelayClient.class
 listener/server/exceptions/EC2ListenServerException.class
-util/hdfs/HDFSManager.class
 aggregator/main/JavaCustomReceiver$3.class
 listener/main/Main.class
