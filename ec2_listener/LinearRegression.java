@@ -7,20 +7,29 @@ import org.apache.spark.mllib.linalg.Vectors;
 import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.mllib.regression.LinearRegressionModel;
 import org.apache.spark.mllib.regression.LinearRegressionWithSGD;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 
 public class LinearRegression {
+	
+	static {
+		Logger.getLogger("org").setLevel(Level.WARN);
+		Logger.getLogger("akka").setLevel(Level.WARN);
+	}
 	
 	public LinearRegression(JavaPairRDD<String, Integer> og, JavaPairRDD<String, Integer> window) {
 		
 	}
 
 	public static void main(String[] args) {
-		SparkConf conf = new SparkConf().setAppName("Linear Regression Example");
+		SparkConf conf = new SparkConf().
+				setAppName("Linear Regression Example")
+				.setMaster("local[*]");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
 		// Load and parse the data
-		String path = "data/mllib/ridge-data/lpsa.data";
+		String path = "lpsa.data";
 		JavaRDD<String> data = sc.textFile(path);
 		JavaRDD<LabeledPoint> parsedData = data.map(new Function<String, LabeledPoint>() {
 			public LabeledPoint call(String line) {
