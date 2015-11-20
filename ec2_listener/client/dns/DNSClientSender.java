@@ -36,6 +36,7 @@ public class DNSClientSender {
 					json_data = thisLine;
 					writer.writeUTF(json_data);
 				}
+
 			} finally {
 				System.out.println("Ending connection from: " + client.getRemoteSocketAddress());
 				Closeables.close(textReader, true);

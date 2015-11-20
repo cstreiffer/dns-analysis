@@ -33,13 +33,12 @@ public class EC2ListenServerThread extends Thread {
 				writer.writeUTF("Connected to: " + server.getLocalSocketAddress());
 				
 				String input = "";
-				while(server.isConnected() && (input = reader.readUTF()) != null) {
+				while((input = reader.readUTF()) != null) {
 					myWriter.write(input);
 					myWriter.newLine();
 				}
 		         
 			} finally {
-				myWriter.newLine();
 				System.out.println("Exiting connection: " + server.getRemoteSocketAddress());
 				Closeables.close(writer, true);
 				Closeables.close(reader, true);
