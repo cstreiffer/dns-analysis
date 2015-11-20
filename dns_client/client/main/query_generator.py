@@ -33,7 +33,7 @@ for l in range(0, 90):
 #out_file = open('dns_queries.txt', 'w')
 counter = 0
 with open('dns_queries.txt', 'w') as out_file:
-	for i in range(0,1000000):
+	for i in range(0,500000):
 		domip_ind = random.randint(0,1999)
 		domain_ip = domain_ip_list[domain_ip_ind[domip_ind]].split(":")
 		domain = domain_ip[0].strip()
