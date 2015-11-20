@@ -3,3 +3,6 @@ target/classes/
 target/maven-archiver/
 target/maven-archiver/pom.properties
 target/maven-status/
+logs/dns-to-ec2-output.txt
+files/dns_queries.txt
+dns_client/client/main/dns_queries.txt
