@@ -17,3 +17,17 @@ Ending connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:50
 Starting connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
 Ending connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
 11-19-2015 23:13:18 [JAVA]: Ending the the java file.
+11-19-2015 23:15:00 [PYTHON]: Generating new file.
+11-19-2015 23:16:31 [COPYING]: Moving file to folder.
+11-19-2015 23:16:32 [REPLACING]: Replacing the jar file.
+11-19-2015 23:16:33 [JAVA]: Running the java file.
+Starting connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+Ending connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+11-19-2015 23:18:22 [JAVA]: Ending the the java file.
+11-19-2015 23:20:00 [PYTHON]: Generating new file.
+11-19-2015 23:21:23 [COPYING]: Moving file to folder.
+11-19-2015 23:21:24 [REPLACING]: Replacing the jar file.
+11-19-2015 23:21:24 [JAVA]: Running the java file.
+Starting connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+Ending connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+11-19-2015 23:23:12 [JAVA]: Ending the the java file.
