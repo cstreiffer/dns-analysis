@@ -18,8 +18,6 @@ import scala.Tuple2;
 
 public class JavaCustomReceiver {
 	private static final Pattern SPACE = Pattern.compile(" ");
-	private static final String ACCESS_KEY = "AKIAJGCZSSNNFIQUDNMQ";
-	private static final String SECRET_KEY = "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";
 
 	static {
 		Logger.getLogger("org").setLevel(Level.WARN);
@@ -30,10 +28,7 @@ public class JavaCustomReceiver {
 
 		SparkConf conf = new SparkConf().setAppName("APPNAME").setMaster("local[3]");
 		JavaSparkContext javaSparkContext = new JavaSparkContext(conf);
-
-		javaSparkContext.hadoopConfiguration().set("fs.s3.awsAccessKeyId", ACCESS_KEY);
-		javaSparkContext.hadoopConfiguration().set("fs.s3.awsSecretAccessKey", SECRET_KEY);
-		//javaSparkContext.hadoopConfiguration().set("fs.s3.impl", "org.apache.hadoop.fs.s3native.NativeS3FileSystem");
+		javaSparkContext.hadoopConfiguration().set("fs.s3.impl", "org.apache.hadoop.fs.s3native.NativeS3FileSystem");
 
 		JavaRDD<String> lines = javaSparkContext.textFile("s3a://cs-514/temp/sample.txt");
 

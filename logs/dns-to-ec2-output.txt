@@ -1,0 +1,13 @@
+11-19-2015 22:50:44 [PYTHON]: Generating new file.
+11-19-2015 22:52:02 [COPYING]: Moving file to folder.
+11-19-2015 22:52:02 [REPLACING]: Replacing the jar file.
+11-19-2015 22:52:03 [JAVA]: Running the java file.
+Starting connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+Ending connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+11-19-2015 23:05:01 [PYTHON]: Generating new file.
+11-19-2015 23:06:19 [COPYING]: Moving file to folder.
+11-19-2015 23:06:19 [REPLACING]: Replacing the jar file.
+11-19-2015 23:06:20 [JAVA]: Running the java file.
+Starting connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+Ending connection from: ec2-52-5-126-181.compute-1.amazonaws.com/52.5.126.181:5055
+11-19-2015 23:10:00 [PYTHON]: Generating new file.

@@ -12,7 +12,7 @@ import com.google.common.io.Closeables;
 public class DNSClientSender {
 	
 	private static final String IP_ADDRESS = "ec2-52-5-126-181.compute-1.amazonaws.com";
-	private static final String DNS_FILE = "files/dns_queries.json";
+	private static final String DNS_FILE = "files/dns_queries.txt";
 	private static final Integer PORT = 5055;
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -25,7 +25,8 @@ public class DNSClientSender {
 				client = new Socket(IP_ADDRESS, PORT);				
 				writer = new DataOutputStream(client.getOutputStream());
 				reader = new DataInputStream(client.getInputStream());
-
+				System.out.println("Starting connection from: " + client.getRemoteSocketAddress());
+				
 				FileReader fr = new FileReader(DNS_FILE);
 				textReader = new BufferedReader(fr);
 				
@@ -37,6 +38,7 @@ public class DNSClientSender {
 				}
 				
 			} finally {
+				System.out.println("Ending connection from: " + client.getRemoteSocketAddress());
 				Closeables.close(textReader, true);
 				Closeables.close(writer, true);
 				Closeables.close(reader, true);
