@@ -15,7 +15,9 @@ public class EC2ListenServerThread extends Thread {
 	private Socket server;
 	private BufferedWriter myWriter;
 	
-	private static final String MNT_FILE="/mnt/temp/dns_queries.txt";
+	private static final String MNT_FILE = "/mnt/temp/dns_queries.txt";
+	//private static final String MNT_FILE = "output.txt";
+	private static final String DONE = "done";
 	
 	public EC2ListenServerThread(Socket server) throws IOException {
 		this.server = server;
@@ -30,13 +32,14 @@ public class EC2ListenServerThread extends Thread {
 			try {
 				reader = new DataInputStream(server.getInputStream());
 				writer = new DataOutputStream(server.getOutputStream());			
-				writer.writeUTF("Connected to: " + server.getLocalSocketAddress());
 				
 				String input = "";
-				while(server.isConnected() && (input = reader.readUTF()) != null) {
+				while((input = reader.readUTF()) != null && !input.equals(DONE)) {
 					myWriter.write(input);
-				}
-		         
+					myWriter.newLine();
+				}		        
+				writer.writeUTF(DONE);
+				
 			} finally {
 				System.out.println("Exiting connection: " + server.getRemoteSocketAddress());
 				Closeables.close(writer, true);

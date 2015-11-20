@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/kevinbutton/Documents/F15/CS514/final_project/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/exceptions/EC2ListenServerException.java
 /Users/kevinbutton/Documents/F15/CS514/final_project/goodPaulHuntingAJauntIntoDNS/ec2_listener/aggregator/main/JavaCustomReceiver.java
 /Users/kevinbutton/Documents/F15/CS514/final_project/goodPaulHuntingAJauntIntoDNS/ec2_listener/util/credentials/CredentialManager.java
@@ -9,3 +10,16 @@
 /Users/kevinbutton/Documents/F15/CS514/final_project/goodPaulHuntingAJauntIntoDNS/ec2_listener/QueryMapReduce.java
 /Users/kevinbutton/Documents/F15/CS514/final_project/goodPaulHuntingAJauntIntoDNS/ec2_listener/QueryPercentCalc.java
 /Users/kevinbutton/Documents/F15/CS514/final_project/goodPaulHuntingAJauntIntoDNS/ec2_listener/util/hdfs/HDFSManager.java
+=======
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/main/Main.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/EC2ListenServerThread.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/LinearRegression.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/QueryMapReduce.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/EC2ListenServer.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/util/hdfs/HDFSManager.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/listener/server/exceptions/EC2ListenServerException.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/aggregator/main/JavaCustomReceiver.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/util/credentials/CredentialManager.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/client/dns/DNSClientSender.java
+/Users/christopherstreiffer/Desktop/ECE558/goodPaulHuntingAJauntIntoDNS/ec2_listener/client/relay/EC2RelayClient.java
+>>>>>>> 1850f15ea47be644ba7045707f2009590a042ec3
