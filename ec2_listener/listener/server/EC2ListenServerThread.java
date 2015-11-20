@@ -3,7 +3,6 @@ package listener.server;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.ConnectException;
@@ -20,7 +19,7 @@ public class EC2ListenServerThread extends Thread {
 	
 	public EC2ListenServerThread(Socket server) throws IOException {
 		this.server = server;
-		this.myWriter = new BufferedWriter(new FileWriter(new File(MNT_FILE)));
+		this.myWriter = new BufferedWriter(new FileWriter(MNT_FILE, true));
 	}
 	
 	public void run() {
@@ -35,12 +34,11 @@ public class EC2ListenServerThread extends Thread {
 				
 				String input = "";
 				while(server.isConnected() && (input = reader.readUTF()) != null) {
-					System.out.println("Writing to the stream: " + input);
 					myWriter.write(input);
-					myWriter.flush();					
 				}
 		         
 			} finally {
+				System.out.println("Exiting connection: " + server.getRemoteSocketAddress());
 				Closeables.close(writer, true);
 				Closeables.close(reader, true);
 				Closeables.close(server, true);
