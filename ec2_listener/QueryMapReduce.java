@@ -13,7 +13,7 @@ import org.apache.spark.api.java.function.PairFunction;
 
 import scala.Tuple2;
 
-public final class JavaWordCount {
+public final class QueryMapReduce {
   private static final Pattern SPACE = Pattern.compile(" ");
 
   public static void main(String[] args) throws Exception {
@@ -23,7 +23,7 @@ public final class JavaWordCount {
       System.exit(1);
     }
 
-    SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
+    SparkConf sparkConf = new SparkConf().setAppName("QueryMapReduce");
     JavaSparkContext ctx = new JavaSparkContext(sparkConf);
     JavaRDD<String> lines = ctx.textFile(args[0], 1);
 
@@ -44,7 +44,7 @@ public final class JavaWordCount {
         	  time = Integer.toString(time_val);
         	  sb.append(domain+" ");
         	  sb.append(ip_addr+" ");
-        	  sb.append(type+" ");
+        	  //sb.append(type+" ");
         	 // sb.append(MAC+" ");
         	  sb.append(time);
         	  sb.append("\n");    		  
