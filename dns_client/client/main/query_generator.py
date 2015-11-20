@@ -14,12 +14,28 @@ domain_ip_file = "dns_ip_map.txt"
 domain_ip_txt = open(domain_ip_file)
 domain_ip_list = domain_ip_txt.read().split('\n')
 
+
+major_ind = []
+for j in range(0, 20):
+	major_ind.append(random.randint(0, 199))
+
+domain_ip_ind = []
+for k in range(0, 200):
+	domain_ip_ind.append(random.randint(0, 199))
+
+for l in range(0, 90):
+	domain_ip_ind.extend(major_ind)
+
+
+
+
+
 #out_file = open('dns_queries.txt', 'w')
 counter = 0
 with open('dns_queries.txt', 'w') as out_file:
 	for i in range(0,1000000):
-		domip_ind = random.randint(0,len(domain_ip_list[0:200])-1)
-		domain_ip = domain_ip_list[domip_ind].split(":")
+		domip_ind = random.randint(0,1999)
+		domain_ip = domain_ip_list[domain_ip_ind[domip_ind]].split(":")
 		domain = domain_ip[0].strip()
 		ip = domain_ip[1].strip()
 		counter+=1
