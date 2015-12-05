@@ -11,7 +11,7 @@ import com.google.common.io.Closeables;
 
 public class DNSClientSender {
 	
-	private static final String IP_ADDRESS = "ec2-52-5-126-181.compute-1.amazonaws.com";
+	private static final String IP_ADDRESS = "52.3.122.56";
 	//private static final String IP_ADDRESS = "localhost";
 
 	private static final String DNS_FILE = "files/dns_queries.txt";
@@ -36,6 +36,7 @@ public class DNSClientSender {
 				String json_data = "";
 				String thisLine = "";
 				while ((thisLine = textReader.readLine()) != null) {
+					System.out.println(thisLine);
 					json_data = thisLine;
 					writer.println(json_data);
 				}

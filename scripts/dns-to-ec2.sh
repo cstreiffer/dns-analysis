@@ -13,17 +13,18 @@ run() {
 	# Run the python command
 	write_to_log "PYTHON" "Generating new file."
 	cd $PYTHON_DIR
-	python $PYTHON_SCRIPT > /dev/null 2>&1
+	python $PYTHON_SCRIPT 
 
 	# Move the output to the correct folder
 	cd $PYTHON_TO_HOME
 	write_to_log "COPYING" "Moving file to folder."
-	cp "$PYTHON_DIR/$FILE" "$FILE_DIR/" > /dev/null 2>&1
+	cp "$PYTHON_DIR/$FILE" "$FILE_DIR/" 
+	cp "$PYTHON_DIR/$FILE" ./
 
 	# Move into the correct folder and Execute the command
 	write_to_log "REPLACING" "Replacing the jar file."
 	cd $FILE_DIR
-	jar uf $JAR $FILE > /dev/null 2>&1
+	jar uf "$HOME/$JAR" $FILE > /dev/null 
 
 	# Move to the home dir and run the command
 	cd $HOME
