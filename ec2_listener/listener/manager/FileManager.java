@@ -12,8 +12,8 @@ import java.util.concurrent.BlockingQueue;
 public class FileManager {
 
 	private static final String DIR = "/mnt/temp/%s.txt";
-	private static final String PROPERTIES = "ec2_listener/configuration/configuration.properties";
-	private static final String CONFIGURATION = "configuration/configuration";
+	private static final String PROPERTIES = "configuration.properties";
+	private static final String CONFIGURATION = "configuration";
 
 	private static FileWriter fw;
 	private static Map<String, MntFileWriter> myMap;
@@ -23,7 +23,7 @@ public class FileManager {
 		try {
 			fw = new FileWriter(PROPERTIES, true);
 			myMap = new HashMap<String, MntFileWriter>();
-			load();
+			//load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
