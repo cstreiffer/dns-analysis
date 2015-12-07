@@ -1,61 +1,66 @@
 package listener.server;
 
 import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.ConnectException;
 import java.net.Socket;
+import java.util.concurrent.BlockingQueue;
 
-import com.google.common.io.Closeables;
+import listener.manager.FileManager;
+
 
 public class EC2ListenServerThread extends Thread {
+	
+	private Socket connection;
+	private BlockingQueue<String> receivedMessageQueue;
+	private PrintWriter outputStream;
+	private BufferedReader inputStream;
+	private Boolean running ;
 
-	private Socket server;
-	private FileWriter myWriter;
-	
-	private static final String MNT_FILE = "/mnt/temp/dns_queries.txt";
-	//private static final String MNT_FILE = "output.txt";
-	private static final String DONE = "done";
-	
-	public EC2ListenServerThread(Socket server) throws IOException {
-		this.server = server;
-		this.myWriter = new FileWriter(MNT_FILE, true);
+	private static final String CLOSE = "closingConnection";
+	private static final String HELLO_HELLO = "oooBabyBaby";
+
+	public EC2ListenServerThread(Socket connection) throws IOException {
+		this.connection = connection;
+		outputStream = new PrintWriter(new OutputStreamWriter(connection.getOutputStream()));
+		inputStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		handshake();
+		running = true;
+		System.out.println("Starting connection from: " + connection.getRemoteSocketAddress());
 	}
 	
 	public void run() {
+		
 		try {
-			System.out.println("Just connected to " + server.getRemoteSocketAddress());
-			BufferedReader reader = null;
-			PrintWriter writer = null;
-
-			try {
-				reader = new BufferedReader(new InputStreamReader(server.getInputStream()));			
-			    writer = new PrintWriter(server.getOutputStream(), true);
-
-				String input = "";
-				while((input = reader.readLine()) != null) {
-					if(input.equals(DONE)) {
-						break;
-					} else {
-						myWriter.write(String.format("%s\n", input));
-						myWriter.flush();
-					}
-				}		        
-				writer.println(DONE);
-
-			} finally {
-				System.out.println("Exiting connection: " + server.getRemoteSocketAddress());
-				Closeables.close(writer, true);
-				Closeables.close(reader, true);
-				Closeables.close(server, true);
-				Closeables.close(myWriter, true);
-			}
-		} catch(ConnectException ce) {
-		      System.err.println("Could not connect: " + ce);
-	    } catch(Throwable t) {
-		      System.err.println("Error receiving data: " + t);
-	    }
+			while (running) {
+				String message = inputStream.readLine();
+				if(message.equals(CLOSE)) {
+					break;
+				} else {
+					receivedMessageQueue.put(message);
+				}
+			} 
+		} catch (InterruptedException | IOException e) {
+			//Eats it
+		}
+	}
+		
+	private void handshake() throws IOException {
+		String identifier = inputStream.readLine();
+		receivedMessageQueue = FileManager.getInstance().getBlockingQueue(identifier);
+		outputStream.println(HELLO_HELLO);
+		outputStream.flush();
+	}
+	
+	public void close() {
+		try {
+			running = false;
+			outputStream.println(CLOSE);	
+			outputStream.close();
+			inputStream.close();
+			connection.close();			
+		} catch (IOException e) {}
 	}
 }

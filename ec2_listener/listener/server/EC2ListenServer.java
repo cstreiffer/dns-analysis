@@ -10,9 +10,8 @@ public class EC2ListenServer {
 	
 	private ServerSocket serverSocket;
 	private static final Integer PORT = 5055;
-		
-	public EC2ListenServer() {
-	}
+	
+	public EC2ListenServer() {}
 	
 	public void run() {	
 		try {
@@ -28,6 +27,7 @@ public class EC2ListenServer {
 	    } catch(Throwable t) {
 		      System.err.println("Error receiving data: " + t);
 	    }
+		// TODO better method for restarting the server
 		run();
 	}
 		
@@ -36,7 +36,6 @@ public class EC2ListenServer {
 			try {
 				new EC2ListenServerThread(serverSocket.accept()).start();
 			} catch (IOException e) {
-				System.out.println("And here we are.");
 				if(serverSocket.isClosed()) {
 					break;
 				}
